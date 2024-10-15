@@ -3,8 +3,6 @@
 #include "dadosSistema.h"
 #include "arquivos.h"
 
-// https://dontpad.com/corre%C3%A7%C3%A3oTrabalhoNoite
-
 int main ()
 {
     //long cpf;
