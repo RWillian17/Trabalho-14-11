@@ -1,8 +1,9 @@
 #ifndef ARQUIVOS
 #define ARQUIVOS
-#endif
+
 
 #include <stdio.h>
+
 
 #define tam 90
 #define linhas 40 //cada usuario possui duas linhas
@@ -22,14 +23,19 @@ void escreveArquivo(char *nomeArquivo, char *dados)
 }
 
 // Função para ler dados de um arquivo de texto
-void leArquivo(char *nomeArquivo, char *buffer, int tamanhoMaximo)
+void leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
 {
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");
         return;
     }
-    fgets(buffer, tamanhoMaximo, arquivo);
+    int i =0;
+    while( !feof( arquivo ) )
+    {
+        fgets(buffer[i], tamanhoMaximo, arquivo);
+        i++;
+    }
     fclose(arquivo);
 }
 
@@ -46,3 +52,6 @@ void leArquivo(char *nomeArquivo, char *buffer, int tamanhoMaximo)
 }
 
 */
+
+
+#endif
