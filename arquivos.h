@@ -32,11 +32,23 @@ int leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
         return;
     }
     int i =0;
-    while( !feof( arquivo ) )
+    while( fgets(buffer[i], sizeof(buffer[i]), arquivo) != NULL ) 
     {
-        fgets(buffer[i] , tamanhoMaximo-1, arquivo);
-        i++;
-        qtd++;
+     int j = 0;
+        
+        // Remover '\n' ou '\r' manualmente, se estiver no final da linha
+        while (buffer[i][j] != '\0') {
+            if (buffer[i][j] == '\n' || buffer[i][j] == '\r') {
+                buffer[i][j] = '\0';  // Substitui '\n' ou '\r' por fim de string
+                break;
+            }
+            j++;
+        }
+
+        if (strlen(buffer[i]) > 0) {
+            i++;  // Apenas incrementa se houver uma linha válida
+            qtd++;
+        }
     }
     printf("qtd na leitura vale %d", qtd);
     qtd = qtd/2;
