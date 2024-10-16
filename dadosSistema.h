@@ -70,7 +70,7 @@ void solicitaCurso (char destino[], int inicio)
 {
     char teste[16];
     do{
-        printf("\nQual o tipo de curso você faz?");
+        printf("\nQual o tipo de curso vocÃª faz?");
         scanf("%s",teste);
         fflush(stdin);
         if ( comparaIgual ( "Tecnico", teste, 8) || comparaIgual ( "tecnico", teste, 8))
@@ -105,9 +105,9 @@ void mostraPessoa (char linha1[], char linha2[])
     mostraDados(linha1,60,79);
     printf("\nSendo o curso ");
     if ( linha2[0] == 'T')
-        printf("Técnico ");
+        printf("TÃ©cnico ");
     else if ( linha2[0] == 'Q')
-        printf("Qualificação ");
+        printf("QualificaÃ§Ã£o ");
     mostraDados(linha2, 2, 30);
     printf("\nMora no endereco ");
     mostraDados(linha2, 31, 84);
@@ -118,17 +118,17 @@ void mostraPessoa (char linha1[], char linha2[])
 void adicionaPessoa(char destinoLinha1[], char destinoLinha2[])
 {
     solicitaDados(destinoLinha1, 0, 59, "Nome Completo");
-    mostraVetor(destinoLinha1);
+    //mostraVetor(destinoLinha1);
     solicitaDados(destinoLinha1, 60, 79, "Telefone");
-    mostraVetor(destinoLinha1);
+    //mostraVetor(destinoLinha1);
     solicitaCurso(destinoLinha2, 0);
-    mostraVetor(destinoLinha1);
+    //mostraVetor(destinoLinha1);
     solicitaDados(destinoLinha2, 1, 30, "Curso");
-    mostraVetor(destinoLinha2);
+    //mostraVetor(destinoLinha2);
     solicitaDados(destinoLinha2, 31, 84, "Endereco");
-    mostraVetor(destinoLinha2);
+    //mostraVetor(destinoLinha2);
     solicitaDados(destinoLinha2, 85, 89, "Numero");
-    mostraVetor(destinoLinha2);
+    //mostraVetor(destinoLinha2);
     
 }
 
