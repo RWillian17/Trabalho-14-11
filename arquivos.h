@@ -8,7 +8,7 @@
 #define tam 90
 #define linhas 40 //cada usuario possui duas linhas
 
-// Função para escrever dados em um arquivo de texto (sobrescreve o arquivo)
+// FunÃ§Ã£o para escrever dados em um arquivo de texto (sobrescreve o arquivo)
 void escreveArquivo(char *nomeArquivo, char *dados)
 {
     FILE *arquivo = fopen(nomeArquivo, "ab");
@@ -22,9 +22,10 @@ void escreveArquivo(char *nomeArquivo, char *dados)
     fclose(arquivo);
 }
 
-// Função para ler dados de um arquivo de texto
-void leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
+// FunÃ§Ã£o para ler dados de um arquivo de texto
+int leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
 {
+    int qtd = 0;
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");
@@ -33,13 +34,18 @@ void leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
     int i =0;
     while( !feof( arquivo ) )
     {
-        fgets(buffer[i], tamanhoMaximo, arquivo);
+        fgets(buffer[i] , tamanhoMaximo-1, arquivo);
         i++;
+        qtd++;
     }
+    printf("qtd na leitura vale %d", qtd);
+    qtd = qtd/2;
+    printf("qtd apos divisao vale %d", qtd);
     fclose(arquivo);
+    return qtd;
 }
 
-// Função para adicionar uma nova linha ao arquivo (sem sobrescrever)
+// FunÃ§Ã£o para adicionar uma nova linha ao arquivo (sem sobrescrever)
 /*void adicionaLinhaArquivo(char *nomeArquivo)
 {
     FILE *arquivo = fopen(nomeArquivo, "a");
