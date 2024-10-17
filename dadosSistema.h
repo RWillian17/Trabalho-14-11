@@ -8,7 +8,7 @@
 
 bool testaTamanho (char teste[], int tamanho)
 {
-    for ( int i = 0; i < tamanho; i++)
+    for ( int i = 0; i <= tamanho; i++)
     {
         if ( teste[i] == '\0')
         {
@@ -34,18 +34,26 @@ int verificaChar(char teste)
 
 void copiaDados (char destino[], char origem[], int inicio, int fim)
 {
+
     for (int i = 0; i < fim-inicio; i++)
     {
         if ( verificaChar(origem[i]))
+        {
             destino[i+inicio] = origem[i];
+            //printf("\ndes %c = orig %c",destino[i+inicio],origem[i]);
+        }
         else
-            destino[i] = ' ';
+            destino[i+inicio] = ' ';
     }
+/*    printf("\nMostrando o resultado\n");
+    for ( int i = inicio; i < fim-inicio; i++)
+        printf("%c",destino[i]);
+*/
 }
 
 void limpaVetor(char vetor[], int tamanho)
 {
-    for ( int i = 0 ; i < tamanho ; i++)
+    for ( int i = 0 ; i <= tamanho ; i++)
         vetor[i] = ' ';
 }
 
@@ -53,8 +61,8 @@ void solicitaDados (char destino[], int inicio, int fim, char tipoDado[])
 {
     char temp[fim-inicio];
     do{
-        limpaVetor(temp, fim-inicio-1);
-        printf("\nInsira o %s com no max %d caracteres ",tipoDado, fim-inicio-1);
+        limpaVetor(temp, fim-inicio);
+        printf("\nInsira o %s com no max %d caracteres ",tipoDado, fim-inicio+1);
         scanf("%[^\n]",temp);
         fflush(stdin);
     }while (!testaTamanho(temp, fim-inicio));

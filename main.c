@@ -6,8 +6,7 @@
 
 int main ()
 {
-    //long cpf;
-    //int verificador;
+
     int qtd = 0, op, qtdInseridos=0;
     
     char dados[linhas][tam];
@@ -16,16 +15,6 @@ int main ()
         limpaVetor(dados[i], tam);
 
     qtd = leArquivo("teste.txt",dados); 
-
-    //char teste[20] = "0123456789ABCDEFGHIJ";
-    //char destino[30] = "AAAAAAAAAABBBBBBBBBBCCCCCDDDDD";
- /*   copiaDados(destino, teste, 9, 29);
-    for ( int i =0; i < 20; i++)
-        printf("\n(%d) = %c", i, teste[i]);
-    for ( int i = 0; i < 30; i++)
-        printf("\n(%d) = %c",i,destino[i]);
-
-}*/
     
     printf("\nForam encontrados %d cadastros",qtd);
     do
@@ -34,9 +23,10 @@ int main ()
         
         printf("\n1 - Adicionar Pessoa");
         printf("\n2 - Mostrar Todos Dados");
-        printf("\n3 - Remover Pessoa\n");
+        
+        printf("\n0 - Fechar e atualizar o banco de dados");
         scanf("%d",&op);
-        fflush(stdin);
+        getchar();
         switch (op)
         {
             case 1:
@@ -46,9 +36,6 @@ int main ()
             case 2:
                 for ( int i = 0; i < 2*(qtd+qtdInseridos)-1 ; i=i+2)
                     mostraPessoa(dados[i], dados[i+1]);
-                break;
-            case 3:
-                printf("\nAinda não feito");
                 break;
             case 0:
                 printf("\nSaindo");
