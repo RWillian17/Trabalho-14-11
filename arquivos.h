@@ -1,9 +1,7 @@
 #ifndef ARQUIVOS
 #define ARQUIVOS
 
-
 #include <stdio.h>
-
 
 #define tam 90
 #define linhas 40 //cada usuario possui duas linhas
@@ -23,18 +21,18 @@ void escreveArquivo(char *nomeArquivo, char *dados)
 }
 
 // Função para ler dados de um arquivo de texto
-int leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
+int leArquivo(char *nomeArquivo, char buffer[linhas][tam])
 {
     int qtd = 0;
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");
-        return;
+        return 0;
     }
     int i =0;
     while( fgets(buffer[i], sizeof(buffer[i]), arquivo) != NULL ) 
     {
-     int j = 0;
+        int j = 0;
         
         // Remover '\n' ou '\r' manualmente, se estiver no final da linha
         while (buffer[i][j] != '\0') {
@@ -45,31 +43,17 @@ int leArquivo(char *nomeArquivo, char buffer[linhas][tam], int tamanhoMaximo)
             j++;
         }
 
-        if (strlen(buffer[i]) > 0) {
+        if (buffer[i][0] >= 'A' && buffer[i][0] <= 'z') {
             i++;  // Apenas incrementa se houver uma linha válida
             qtd++;
         }
     }
-    printf("qtd na leitura vale %d", qtd);
+    //printf("qtd na leitura vale %d", qtd);
     qtd = qtd/2;
-    printf("qtd apos divisao vale %d", qtd);
+    //printf("qtd apos divisao vale %d", qtd);
     fclose(arquivo);
     return qtd;
 }
-
-// Função para adicionar uma nova linha ao arquivo (sem sobrescrever)
-/*void adicionaLinhaArquivo(char *nomeArquivo)
-{
-    FILE *arquivo = fopen(nomeArquivo, "a");
-    if (arquivo == NULL) {
-        perror("Erro ao abrir o arquivo para escrita");
-        return;
-    }
-    
-    fclose(arquivo);
-}
-
-*/
 
 
 #endif
