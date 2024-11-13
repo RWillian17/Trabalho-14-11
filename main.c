@@ -45,13 +45,14 @@ int main ()
                 break;
         }
     } while (op != 0);
-    
+    /*
     for ( int i = 0; i < 2*(qtd+qtdInseridos) ; i++)
         mostraVetor(dados[i]);
-
+    }*/
     for (int i = (qtd*2) ; i < (2*(qtd+qtdInseridos))  ; i++)
     {
         escreveArquivo("teste.txt", dados[i]);
     }
+    
 }
 

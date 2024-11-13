@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 #define tam 90
-#define linhas 40 //cada usuario possui duas linhas
+#define linhas 80 //cada usuario possui duas linhas
 
 // Função para escrever dados em um arquivo de texto (sobrescreve o arquivo)
 void escreveArquivo(char *nomeArquivo, char *dados)

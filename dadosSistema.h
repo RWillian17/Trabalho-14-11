@@ -129,9 +129,9 @@ void mostraPessoa (char linha1[], char linha2[])
     mostraDados(linha1,60,79);
     printf("\nSendo o curso: ");
     if ( linha2[0] == 'T')
-        printf("Técnico ");
+        printf("Tecnico ");
     else if ( linha2[0] == 'Q')
-        printf("Qualificação ");
+        printf("Qualificacao ");
     mostraDados(linha2, 1, 30);
 
     printf("\nMora no endereco: ");
@@ -156,8 +156,6 @@ void adicionaPessoa(char destinoLinha1[], char destinoLinha2[])
     //mostraVetor(destinoLinha2);
     
 }
-
-//void adicionaGuardado()
 
 
 #endif
